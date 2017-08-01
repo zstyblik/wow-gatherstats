@@ -7,6 +7,7 @@ using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace GatherStats
             DistanceTravelled = LastLoc.Distance(Me.Location);
             LastLoc = Me.Location;
 
-            GoldInBagCount = Me.Gold();
+            GoldInBagCount = Me.Gold;
             AethrilInBagCount = Lua.GetReturnVal<int>("local countBags = GetItemCount(\"Aethril\"); return countBags;", 0);
             BloodOfSargeraslInBagCount = Lua.GetReturnVal<int>("local countBags = GetItemCount(\"Blood of Sargeras\"); return countBags;", 0);
             DreamleaflInBagCount = Lua.GetReturnVal<int>("local countBags = GetItemCount(\"Dreamleaf\"); return countBags;", 0);
